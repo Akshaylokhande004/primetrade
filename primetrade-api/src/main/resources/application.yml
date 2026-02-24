@@ -1,5 +1,5 @@
 server:
-  port:${PORT:8080}
+  port: ${PORT:8080}
 
 jwt:
   secret: your_super_secret_key_change_this_to_something_long_and_secure_123456789
