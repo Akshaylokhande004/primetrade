@@ -1,0 +1,29 @@
+server:
+  port:${PORT:8080}
+
+jwt:
+  secret: your_super_secret_key_change_this_to_something_long_and_secure_123456789
+  expiration: 86400000
+
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+
+    cache:
+      type: redis
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # use 'validate' in production
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
