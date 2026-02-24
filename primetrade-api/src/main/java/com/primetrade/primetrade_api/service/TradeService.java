@@ -26,10 +26,10 @@ public class TradeService {
     private final TradeRepository tradeRepository;
     private  final UserRepository userRepository;
 
-    @CacheEvict(
-            value = "trades",
-            key = "'getTrades_' + T(org.springframework.security.core.context.SecurityContextHolder).getContext().getAuthentication().getName()"
-    )
+//    @CacheEvict(
+//            value = "trades",
+//            key = "'getTrades_' + T(org.springframework.security.core.context.SecurityContextHolder).getContext().getAuthentication().getName()"
+//    )
     public TradeResponse createTrade(TradeRequest request) {
 
         String email = getCurrentUserEmail();
@@ -49,10 +49,10 @@ public class TradeService {
         return mapToResponse(trade);
     }
 
-    @Cacheable(
-            value = "trades",
-            key = "#root.methodName + '_' + T(org.springframework.security.core.context.SecurityContextHolder).getContext().getAuthentication().getName()"
-    )
+//    @Cacheable(
+//            value = "trades",
+//            key = "#root.methodName + '_' + T(org.springframework.security.core.context.SecurityContextHolder).getContext().getAuthentication().getName()"
+//    )
     public List<TradeResponse> getTrades() {
 
         String email = getCurrentUserEmail();
@@ -98,10 +98,10 @@ public class TradeService {
             throw new CustomAccessDeniedException("Access denied");
         }
     }
-    @CacheEvict(
-            value = "trades",
-            key = "'getTrades_' + T(org.springframework.security.core.context.SecurityContextHolder).getContext().getAuthentication().getName()"
-    )
+//    @CacheEvict(
+//            value = "trades",
+//            key = "'getTrades_' + T(org.springframework.security.core.context.SecurityContextHolder).getContext().getAuthentication().getName()"
+//    )
     public TradeResponse updateTrade(Long id, TradeRequest request) {
 
         Trade trade = tradeRepository.findById(id)
@@ -118,10 +118,10 @@ public class TradeService {
 
         return mapToResponse(trade);
     }
-    @CacheEvict(
-            value = "trades",
-            key = "'getTrades_' + T(org.springframework.security.core.context.SecurityContextHolder).getContext().getAuthentication().getName()"
-    )
+//    @CacheEvict(
+//            value = "trades",
+//            key = "'getTrades_' + T(org.springframework.security.core.context.SecurityContextHolder).getContext().getAuthentication().getName()"
+//    )
     public void deleteTrade(Long id) {
 
         Trade trade = tradeRepository.findById(id)
