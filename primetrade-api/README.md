@@ -86,3 +86,14 @@ JWT-based stateless authentication.
 
 Caching:
 Redis implemented (local), removed for production deployment.
+
+## Admin User Seeding
+
+The system supports automatic admin user creation via environment variables.
+
+On application startup:
+- If ADMIN_EMAIL and ADMIN_PASSWORD are defined
+- And the admin user does not exist
+- The system creates an ADMIN account
+
+This ensures secure and configurable admin initialization without hardcoded credentials.
