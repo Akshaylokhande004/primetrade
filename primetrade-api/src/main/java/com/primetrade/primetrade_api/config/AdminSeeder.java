@@ -35,7 +35,9 @@ public class AdminSeeder implements CommandLineRunner {
             return;
         }
 
-        if (userRepository.findByEmail(adminEmail).isEmpty()) {
+        User existingAdmin = userRepository.findByEmail(adminEmail).orElse(null);
+
+        if (existingAdmin == null) {
 
             User admin = new User();
             admin.setEmail(adminEmail);
@@ -44,7 +46,15 @@ public class AdminSeeder implements CommandLineRunner {
 
             userRepository.save(admin);
 
-            System.out.println("Admin user seeded successfully.");
+            System.out.println("Admin created.");
+
+        } else {
+
+            existingAdmin.setPassword(passwordEncoder.encode(adminPassword));
+            existingAdmin.setRole(Role.ADMIN);
+            userRepository.save(existingAdmin);
+
+            System.out.println("Admin updated.");
         }
     }
 }
