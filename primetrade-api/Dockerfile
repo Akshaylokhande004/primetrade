@@ -13,4 +13,4 @@ RUN ./mvnw clean package -DskipTests
 EXPOSE 8080
 
 # Run app
-CMD ["java", "-jar", "target/primetrade-api-0.0.1-SNAPSHOT.jar"]
+CMD ["sh", "-c", "java -Dserver.port=$PORT -jar target/primetrade-api-0.0.1-SNAPSHOT.jar"]
