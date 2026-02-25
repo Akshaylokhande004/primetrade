@@ -8,11 +8,10 @@ import org.springframework.cache.annotation.EnableCaching;
 //@EnableCaching
 public class PrimetradeApiApplication {
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(PrimetradeApiApplication.class, args);
 	}
-    //to create admin
+
 
 
 }

@@ -8,6 +8,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.primetrade.primetrade_api.repository.UserRepository;
+import com.primetrade.primetrade_api.model.User;
+import com.primetrade.primetrade_api.model.Role;
 
 @Component
 @Profile("!test")
